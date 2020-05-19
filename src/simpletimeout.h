@@ -16,14 +16,15 @@ class SIMPLETIMEOUT {
 	public:
 		SIMPLETIMEOUT(void);
 
-		void begin(uint32_t); // start timeout with time in ms
+		void begin(uint16_t); // start timeout with time in ms
+
 		bool check(void); // check if timedout
 		void retrigger(void); // retrigger timeout
 		bool update(void); // check if timed out and retrigger if so
 
 	private:
-		uint32_t _time;
-		uint32_t _timeout;
+		uint16_t _timeout;
+		uint32_t _last_time;
 };
 
 

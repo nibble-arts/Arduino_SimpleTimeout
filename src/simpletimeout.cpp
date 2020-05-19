@@ -15,9 +15,9 @@ SIMPLETIMEOUT::SIMPLETIMEOUT() {
 }
 
 
-void SIMPLETIMEOUT::begin(uint32_t time) {
+void SIMPLETIMEOUT::begin(uint16_t time) {
 
-	_time = time;
+	_timeout = time;
 
 	retrigger();
 }
@@ -25,13 +25,13 @@ void SIMPLETIMEOUT::begin(uint32_t time) {
 
 bool SIMPLETIMEOUT::check(void) {
 
-	return (_timeout + _time) < millis();
+	return (_last_time + _timeout) < millis();
 }
 
 
 void SIMPLETIMEOUT::retrigger(void) {
 
-	_timeout = millis();
+	_last_time = millis();
 }
 
 
