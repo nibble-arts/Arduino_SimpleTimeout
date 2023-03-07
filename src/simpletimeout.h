@@ -21,6 +21,8 @@ class SIMPLETIMEOUT {
 		bool check(void); // check if timedout
 		void retrigger(void); // retrigger timeout
 		bool update(void); // check if timed out and retrigger if so
+		uint8_t progress(void); // return timeout progress in percent (0-100)
+		uint32_t rest(void); // return rest time in ms
 
 	private:
 		uint16_t _timeout;

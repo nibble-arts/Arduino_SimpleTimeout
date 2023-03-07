@@ -4,6 +4,9 @@
  * @autor: Thomas Winkler
  * @copyright: 2019-11-17
  * @lizence: CC0
+ *
+ * change:
+ *		add progress
  */
 
 
@@ -44,4 +47,18 @@ bool SIMPLETIMEOUT::update(void) {
 	}
 
 	return false;
+}
+
+uint32_t SIMPLETIMEOUT::rest(void) {
+
+	if (millis() < (_last_time + _timeout)) {		
+		return (_last_time + _timeout) - millis();
+	}
+
+	return false;
+}
+
+uint8_t SIMPLETIMEOUT::progress(void) {
+
+	return (millis() - _last_time) * 100 / _timeout;
 }
